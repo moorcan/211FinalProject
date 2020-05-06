@@ -1,0 +1,10 @@
+C:\Users\candance\Desktop\211FinalProject\CocktailSearch\CocktailSearch\bin\Debug\CocktailSearch.exe.config
+C:\Users\candance\Desktop\211FinalProject\CocktailSearch\CocktailSearch\bin\Debug\CocktailSearch.exe
+C:\Users\candance\Desktop\211FinalProject\CocktailSearch\CocktailSearch\bin\Debug\CocktailSearch.pdb
+C:\Users\candance\Desktop\211FinalProject\CocktailSearch\CocktailSearch\obj\Debug\CocktailSearch.csprojAssemblyReference.cache
+C:\Users\candance\Desktop\211FinalProject\CocktailSearch\CocktailSearch\obj\Debug\CocktailSearch.Form1.resources
+C:\Users\candance\Desktop\211FinalProject\CocktailSearch\CocktailSearch\obj\Debug\CocktailSearch.Properties.Resources.resources
+C:\Users\candance\Desktop\211FinalProject\CocktailSearch\CocktailSearch\obj\Debug\CocktailSearch.csproj.GenerateResource.cache
+C:\Users\candance\Desktop\211FinalProject\CocktailSearch\CocktailSearch\obj\Debug\CocktailSearch.csproj.CoreCompileInputs.cache
+C:\Users\candance\Desktop\211FinalProject\CocktailSearch\CocktailSearch\obj\Debug\CocktailSearch.exe
+C:\Users\candance\Desktop\211FinalProject\CocktailSearch\CocktailSearch\obj\Debug\CocktailSearch.pdb
