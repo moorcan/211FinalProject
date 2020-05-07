@@ -8,19 +8,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Http;
+using System.Net;
+using Newtonsoft.Json;
+using Nancy.Json;
 
 namespace CocktailSearch
 {
     public partial class Form1 : Form
     {
+        private static readonly HttpClient client = new HttpClient();
         public Form1()
         {
             InitializeComponent();
-            //https://prod.liveshare.vsengsaas.visualstudio.com/join?F5FFF30CDAD5201A93CFAB19BAA1D4354A07
-            //https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin
-            //https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka
+            //client = new HttpClient();
 
-            List<string> alcoholList = getAlcoholList();
+        //https://prod.liveshare.vsengsaas.visualstudio.com/join?F5FFF30CDAD5201A93CFAB19BAA1D4354A07
+        //https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin
+        //https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka
+
+        List<string> alcoholList = getAlcoholList();
             dropdown_alcohol.Items.Clear();
             for (int i = 0; i < alcoholList.Count; i++)
             {
@@ -40,6 +47,8 @@ namespace CocktailSearch
             {
                 dropdown_ingredients.Items.Add(ingrediants[i]);
             }
+
+            populateFiveFavDrinks();
 
 
 
@@ -115,16 +124,7 @@ namespace CocktailSearch
         {
 
         }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox6_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -143,11 +143,17 @@ namespace CocktailSearch
 
         private void drinkList_SelectedIndexChanged(object sender, EventArgs e)
         {
-       
+            
             IDictionary<string, string> drink = getDrink(drinkList.Text);
-            drinkName.Text = drinkList.Text;
+            populateDrink(drink);
+          
+        }
+
+        private void populateDrink(IDictionary<string, string> drink)
+        {
+            drinkName.Text = drink["name"];
             resultPicture.Load(drink["photo"]);
-            instructions.Text = drink["instructions"];
+           // instructions.Text = drink["instructions"];
             ingrediant1.Text = drink["ingrediant1"];
             ingrediant2.Text = drink["ingrediant2"];
             ingrediant3.Text = drink["ingrediant3"];
@@ -164,8 +170,25 @@ namespace CocktailSearch
 
         private IDictionary<string, string> getDrink(string drinkName)
         {
+            status.Text = "getDrink";
+           
+            //makes HTTP request from web to grab information about drink
+             using (var client = new HttpClient(new HttpClientHandler {  }))
+             {
+                 HttpResponseMessage response = client.GetAsync("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita").Result;
+                 response.EnsureSuccessStatusCode();
+                 string result = response.Content.ReadAsStringAsync().Result;
+                status.Text = "Result: " + result;
+                instructions.Text = result;
+                dynamic stuff = JsonConvert.DeserializeObject(result);
+                //var ser = new JavaScriptSerializer();
+                //ser.Deserialize<Foo>(json);
+            }
+
+            
             //IDictionary<string, IDictionary<string, string>> dictOfDrinks = new Dictionary<string, IDictionary<string, string>>();
             IDictionary<string, string> drink1 = new Dictionary<string, string>();
+            drink1["name"] = "Margarita";
             drink1["ingrediant1"] = "Tequilla";
             drink1["ingrediant2"] = "Triple sec";
             drink1["ingrediant3"] = "Lime juice";
@@ -182,12 +205,6 @@ namespace CocktailSearch
             drink1["glass"] = "Cocktail Glass";
             drink1["instructions"] = "Rub the rim of the glass with the lime slice to make the salt stick to it. Take care to moisten only the outer rim and sprinkle the salt on it." +
                                      " The salt should present to the lips of the imbiber and never mix into the cocktail. Shake the other ingredients with ice, then carefully pour into the glass.";
-
-           // IDictionary<string, string> drink2 = new Dictionary<string, string>();
-           // drink2["ingrediant"] = "orange juice";
-           // drink2["instructions"] = "do not stir";
-           // dictOfDrinks["Margarita"] = drink1;
-           // dictOfDrinks["tequila sunrise"] = drink2;
             return drink1;
 
 
@@ -199,37 +216,66 @@ namespace CocktailSearch
         {
 
         }
-    }
 
-   /* private IDictionary<string, IDictionary<string, string>> populateDrink(string drinkName)
+        private void populateFiveFavDrinks()
         {
-            IDictionary<string, IDictionary<string, string>> dictOfDrinks = new Dictionary<string, IDictionary<string, string>>();
-            IDictionary<string, string> drink1 = new Dictionary<string, string>();
-            drink1["ingrediant1"] = "Tequilla";
-            drink1["ingrediant2"] = "Triple sec";
-            drink1["ingrediant3"] = "Lime juice";
-            drink1["ingrediant4"] = "Salt";
-            drink1["measure1"] = "1 1/2 oz ";
-            drink1["measure2"] = "1/2 oz ";
-            drink1["measure3"] = "1 oz ";
-            drink1["measure4"] = null;
-            drink1["photo"] = "https://www.thecocktaildb.com/images/media/drink/wpxpvu1439905379.jpg";
-            drink1["glass"] = "Cocktail Glass";
-            drink1["instructions"] = "Rub the rim of the glass with the lime slice to make the salt stick to it. Take care to moisten only the outer rim and sprinkle the salt on it." +
-                                     " The salt should present to the lips of the imbiber and never mix into the cocktail. Shake the other ingredients with ice, then carefully pour into the glass.";
+            //Moscow Mule
+            popularDrink1.Load("https://www.thecocktaildb.com/images/media/drink/3pylqc1504370988.jpg");
 
-            drink1["instructions"] = "Shake the glass";
-            IDictionary<string, string> drink2 = new Dictionary<string, string>();
-            drink2["ingrediant"] = "orange juice";
-            drink2["instructions"] = "do not stir";
-            dictOfDrinks["Margarita"] = drink1;
-            dictOfDrinks["tequila sunrise"] = drink2;
-            return dictOfDrinks;
-            
-     
+            //Mojito
+            popularDrink2.Load("https://www.thecocktaildb.com/images/media/drink/rxtqps1478251029.jpg");
+
+            //Manhatten
+            popularDrink3.Load("https://www.thecocktaildb.com/images/media/drink/ec2jtz1504350429.jpg");
+
+            //Wiskey Sour
+            popularDrink4.Load("https://www.thecocktaildb.com/images/media/drink/zxd8v41576797287.jpg");
+
+            //Long Island Tea
+            popularDrink5.Load("https://www.thecocktaildb.com/images/media/drink/ywxwqs1439906072.jpg");
 
 
         }
-        */
+
+        //Moscow Mule Drink 1
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            IDictionary<string, string> drink = getDrink("Moscow Mule");
+            populateDrink(drink);
+        }
+        //Mojito Drink 2 when the popular drink Mojito is clicked you will see ingrediants
+        private void popularDrink2_Click(object sender, EventArgs e)
+        {
+            IDictionary<string, string> drink = getDrink("Mojito");
+            populateDrink(drink);
+        }
+        //Manhatten Drink3 when the popular drink Manhatten is clicked you will see ingrediants
+        private void popularDrink3_Click(object sender, EventArgs e)
+        {
+            IDictionary<string, string> drink = getDrink("Manhatten");
+            populateDrink(drink);
+        }
+        //Wishkey Sour Drink 4when the popular drink Wiskey Sour is clicked you will see ingrediants
+        private void popularDrink4_Click(object sender, EventArgs e)
+        {
+            IDictionary<string, string> drink = getDrink("Wiskey Sour");
+            populateDrink(drink);
+        }
+
+        //Long Island Tea Drink 5 when the popular drink Long Island Tea is clicked you will see ingrediants
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            IDictionary<string, string> drink = getDrink("Long Island Tea");
+            populateDrink(drink);
+        }
+
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+
+
+ 
     
 }

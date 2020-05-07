@@ -58,6 +58,9 @@
             this.resultPicture = new System.Windows.Forms.PictureBox();
             this.drinkName = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.status = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip2 = new System.Windows.Forms.StatusStrip();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.popularDrink5)).BeginInit();
@@ -69,6 +72,7 @@
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.resultPicture)).BeginInit();
             this.groupBox4.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -166,6 +170,7 @@
             this.popularDrink4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.popularDrink4.TabIndex = 3;
             this.popularDrink4.TabStop = false;
+            this.popularDrink4.Click += new System.EventHandler(this.popularDrink4_Click);
             // 
             // popularDrink3
             // 
@@ -176,6 +181,7 @@
             this.popularDrink3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.popularDrink3.TabIndex = 2;
             this.popularDrink3.TabStop = false;
+            this.popularDrink3.Click += new System.EventHandler(this.popularDrink3_Click);
             // 
             // popularDrink2
             // 
@@ -186,6 +192,7 @@
             this.popularDrink2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.popularDrink2.TabIndex = 1;
             this.popularDrink2.TabStop = false;
+            this.popularDrink2.Click += new System.EventHandler(this.popularDrink2_Click);
             // 
             // popularDrink1
             // 
@@ -410,11 +417,38 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Select a Drink:";
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.status});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 751);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1098, 22);
+            this.statusStrip1.TabIndex = 9;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // status
+            // 
+            this.status.Name = "status";
+            this.status.Size = new System.Drawing.Size(118, 17);
+            this.status.Text = "toolStripStatusLabel1";
+            this.status.Click += new System.EventHandler(this.toolStripStatusLabel1_Click);
+            // 
+            // statusStrip2
+            // 
+            this.statusStrip2.Location = new System.Drawing.Point(0, 729);
+            this.statusStrip2.Name = "statusStrip2";
+            this.statusStrip2.Size = new System.Drawing.Size(1098, 22);
+            this.statusStrip2.TabIndex = 10;
+            this.statusStrip2.Text = "statusStrip2";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1098, 767);
+            this.ClientSize = new System.Drawing.Size(1098, 773);
+            this.Controls.Add(this.statusStrip2);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -434,7 +468,10 @@
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.resultPicture)).EndInit();
             this.groupBox4.ResumeLayout(false);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -469,6 +506,9 @@
         private System.Windows.Forms.Label ingrediant6;
         private System.Windows.Forms.Label ingrediant5;
         private System.Windows.Forms.Label ingrediant4;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel status;
+        private System.Windows.Forms.StatusStrip statusStrip2;
     }
 }
 

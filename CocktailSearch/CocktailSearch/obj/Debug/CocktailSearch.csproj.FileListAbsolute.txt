@@ -8,3 +8,8 @@ C:\Users\candance\Desktop\211FinalProject\CocktailSearch\CocktailSearch\obj\Debu
 C:\Users\candance\Desktop\211FinalProject\CocktailSearch\CocktailSearch\obj\Debug\CocktailSearch.csproj.CoreCompileInputs.cache
 C:\Users\candance\Desktop\211FinalProject\CocktailSearch\CocktailSearch\obj\Debug\CocktailSearch.exe
 C:\Users\candance\Desktop\211FinalProject\CocktailSearch\CocktailSearch\obj\Debug\CocktailSearch.pdb
+C:\Users\candance\Desktop\211FinalProject\CocktailSearch\CocktailSearch\bin\Debug\Nancy.dll
+C:\Users\candance\Desktop\211FinalProject\CocktailSearch\CocktailSearch\bin\Debug\Newtonsoft.Json.dll
+C:\Users\candance\Desktop\211FinalProject\CocktailSearch\CocktailSearch\bin\Debug\Nancy.xml
+C:\Users\candance\Desktop\211FinalProject\CocktailSearch\CocktailSearch\bin\Debug\Newtonsoft.Json.xml
+C:\Users\candance\Desktop\211FinalProject\CocktailSearch\CocktailSearch\obj\Debug\CocktailSearch.csproj.CopyComplete
