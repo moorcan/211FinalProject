@@ -29,53 +29,53 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dropdown_ingredients = new System.Windows.Forms.ComboBox();
+            this.dropdown_glass = new System.Windows.Forms.ComboBox();
+            this.dropdown_alcohol = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.popularDrink5 = new System.Windows.Forms.PictureBox();
+            this.popularDrink4 = new System.Windows.Forms.PictureBox();
+            this.popularDrink3 = new System.Windows.Forms.PictureBox();
+            this.popularDrink2 = new System.Windows.Forms.PictureBox();
+            this.popularDrink1 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.drinkList = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.measure6 = new System.Windows.Forms.Label();
+            this.measure3 = new System.Windows.Forms.Label();
+            this.measure5 = new System.Windows.Forms.Label();
+            this.measure2 = new System.Windows.Forms.Label();
+            this.measure4 = new System.Windows.Forms.Label();
+            this.measure1 = new System.Windows.Forms.Label();
+            this.ingrediant6 = new System.Windows.Forms.Label();
+            this.ingrediant3 = new System.Windows.Forms.Label();
+            this.ingrediant5 = new System.Windows.Forms.Label();
+            this.ingrediant2 = new System.Windows.Forms.Label();
+            this.ingrediant4 = new System.Windows.Forms.Label();
+            this.ingrediant1 = new System.Windows.Forms.Label();
+            this.instructions = new System.Windows.Forms.Label();
+            this.resultPicture = new System.Windows.Forms.PictureBox();
+            this.drinkName = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popularDrink5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popularDrink4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popularDrink3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popularDrink2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popularDrink1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultPicture)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox3);
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.dropdown_ingredients);
+            this.groupBox1.Controls.Add(this.dropdown_glass);
+            this.groupBox1.Controls.Add(this.dropdown_alcohol);
             this.groupBox1.Font = new System.Drawing.Font("KacstOffice", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.MenuText;
             this.groupBox1.Location = new System.Drawing.Point(26, 253);
@@ -86,57 +86,57 @@
             this.groupBox1.Text = "Filter by:";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // comboBox3
+            // dropdown_ingredients
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.dropdown_ingredients.FormattingEnabled = true;
+            this.dropdown_ingredients.Items.AddRange(new object[] {
             "orange juice",
             "cranberry juice",
             "pinapple juice",
             "lime"});
-            this.comboBox3.Location = new System.Drawing.Point(19, 136);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(197, 37);
-            this.comboBox3.TabIndex = 6;
-            this.comboBox3.Text = "Ingredients";
+            this.dropdown_ingredients.Location = new System.Drawing.Point(19, 136);
+            this.dropdown_ingredients.Name = "dropdown_ingredients";
+            this.dropdown_ingredients.Size = new System.Drawing.Size(197, 37);
+            this.dropdown_ingredients.TabIndex = 6;
+            this.dropdown_ingredients.Text = "Ingredients";
             // 
-            // comboBox2
+            // dropdown_glass
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.dropdown_glass.FormattingEnabled = true;
+            this.dropdown_glass.Items.AddRange(new object[] {
             "Shot glass",
             "Pint glass",
             "martini glass"});
-            this.comboBox2.Location = new System.Drawing.Point(19, 93);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(197, 37);
-            this.comboBox2.TabIndex = 5;
-            this.comboBox2.Text = "Glass Type";
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.dropdown_glass.Location = new System.Drawing.Point(19, 93);
+            this.dropdown_glass.Name = "dropdown_glass";
+            this.dropdown_glass.Size = new System.Drawing.Size(197, 37);
+            this.dropdown_glass.TabIndex = 5;
+            this.dropdown_glass.Text = "Glass Type";
+            this.dropdown_glass.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
-            // comboBox1
+            // dropdown_alcohol
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.dropdown_alcohol.FormattingEnabled = true;
+            this.dropdown_alcohol.Items.AddRange(new object[] {
             "Wiskey",
             "Vodka",
             "Rum",
             "Scotch",
             "Gin"});
-            this.comboBox1.Location = new System.Drawing.Point(19, 50);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(197, 37);
-            this.comboBox1.TabIndex = 4;
-            this.comboBox1.Text = "Alcohol";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.dropdown_alcohol.Location = new System.Drawing.Point(19, 50);
+            this.dropdown_alcohol.Name = "dropdown_alcohol";
+            this.dropdown_alcohol.Size = new System.Drawing.Size(197, 37);
+            this.dropdown_alcohol.TabIndex = 4;
+            this.dropdown_alcohol.Text = "Alcohol";
+            this.dropdown_alcohol.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.pictureBox6);
-            this.groupBox2.Controls.Add(this.pictureBox5);
-            this.groupBox2.Controls.Add(this.pictureBox4);
-            this.groupBox2.Controls.Add(this.pictureBox3);
-            this.groupBox2.Controls.Add(this.pictureBox2);
+            this.groupBox2.Controls.Add(this.popularDrink5);
+            this.groupBox2.Controls.Add(this.popularDrink4);
+            this.groupBox2.Controls.Add(this.popularDrink3);
+            this.groupBox2.Controls.Add(this.popularDrink2);
+            this.groupBox2.Controls.Add(this.popularDrink1);
             this.groupBox2.Font = new System.Drawing.Font("KacstOffice", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.MenuText;
             this.groupBox2.Location = new System.Drawing.Point(307, 12);
@@ -146,57 +146,57 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Popular Drinks";
             // 
-            // pictureBox6
+            // popularDrink5
             // 
-            this.pictureBox6.Image = global::CocktailSearch.Properties.Resources.strawberr_drink;
-            this.pictureBox6.Location = new System.Drawing.Point(624, 36);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(150, 143);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 4;
-            this.pictureBox6.TabStop = false;
-            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
+            this.popularDrink5.Image = global::CocktailSearch.Properties.Resources.strawberr_drink;
+            this.popularDrink5.Location = new System.Drawing.Point(624, 36);
+            this.popularDrink5.Name = "popularDrink5";
+            this.popularDrink5.Size = new System.Drawing.Size(150, 143);
+            this.popularDrink5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.popularDrink5.TabIndex = 4;
+            this.popularDrink5.TabStop = false;
+            this.popularDrink5.Click += new System.EventHandler(this.pictureBox6_Click);
             // 
-            // pictureBox5
+            // popularDrink4
             // 
-            this.pictureBox5.Image = global::CocktailSearch.Properties.Resources.strawberr_drink;
-            this.pictureBox5.Location = new System.Drawing.Point(468, 36);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(150, 143);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 3;
-            this.pictureBox5.TabStop = false;
+            this.popularDrink4.Image = global::CocktailSearch.Properties.Resources.strawberr_drink;
+            this.popularDrink4.Location = new System.Drawing.Point(468, 36);
+            this.popularDrink4.Name = "popularDrink4";
+            this.popularDrink4.Size = new System.Drawing.Size(150, 143);
+            this.popularDrink4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.popularDrink4.TabIndex = 3;
+            this.popularDrink4.TabStop = false;
             // 
-            // pictureBox4
+            // popularDrink3
             // 
-            this.pictureBox4.Image = global::CocktailSearch.Properties.Resources.strawberr_drink;
-            this.pictureBox4.Location = new System.Drawing.Point(312, 36);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(150, 143);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 2;
-            this.pictureBox4.TabStop = false;
+            this.popularDrink3.Image = global::CocktailSearch.Properties.Resources.strawberr_drink;
+            this.popularDrink3.Location = new System.Drawing.Point(312, 36);
+            this.popularDrink3.Name = "popularDrink3";
+            this.popularDrink3.Size = new System.Drawing.Size(150, 143);
+            this.popularDrink3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.popularDrink3.TabIndex = 2;
+            this.popularDrink3.TabStop = false;
             // 
-            // pictureBox3
+            // popularDrink2
             // 
-            this.pictureBox3.Image = global::CocktailSearch.Properties.Resources.strawberr_drink;
-            this.pictureBox3.Location = new System.Drawing.Point(156, 36);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(150, 143);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 1;
-            this.pictureBox3.TabStop = false;
+            this.popularDrink2.Image = global::CocktailSearch.Properties.Resources.strawberr_drink;
+            this.popularDrink2.Location = new System.Drawing.Point(156, 36);
+            this.popularDrink2.Name = "popularDrink2";
+            this.popularDrink2.Size = new System.Drawing.Size(150, 143);
+            this.popularDrink2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.popularDrink2.TabIndex = 1;
+            this.popularDrink2.TabStop = false;
             // 
-            // pictureBox2
+            // popularDrink1
             // 
-            this.pictureBox2.Image = global::CocktailSearch.Properties.Resources.strawberr_drink;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 36);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(150, 143);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.popularDrink1.Image = global::CocktailSearch.Properties.Resources.strawberr_drink;
+            this.popularDrink1.Location = new System.Drawing.Point(0, 36);
+            this.popularDrink1.Name = "popularDrink1";
+            this.popularDrink1.Size = new System.Drawing.Size(150, 143);
+            this.popularDrink1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.popularDrink1.TabIndex = 0;
+            this.popularDrink1.TabStop = false;
+            this.popularDrink1.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // pictureBox1
             // 
@@ -207,38 +207,39 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // listBox1
+            // drinkList
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 29;
-            this.listBox1.Items.AddRange(new object[] {
+            this.drinkList.FormattingEnabled = true;
+            this.drinkList.ItemHeight = 29;
+            this.drinkList.Items.AddRange(new object[] {
             "Margarita",
             "Old Fashion",
             "Wiskey Mule",
             "Dirty Martini"});
-            this.listBox1.Location = new System.Drawing.Point(19, 36);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(197, 178);
-            this.listBox1.TabIndex = 5;
+            this.drinkList.Location = new System.Drawing.Point(19, 36);
+            this.drinkList.Name = "drinkList";
+            this.drinkList.Size = new System.Drawing.Size(197, 178);
+            this.drinkList.TabIndex = 5;
+            this.drinkList.SelectedIndexChanged += new System.EventHandler(this.drinkList_SelectedIndexChanged);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label15);
-            this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.label13);
-            this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.pictureBox7);
-            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Controls.Add(this.measure6);
+            this.groupBox3.Controls.Add(this.measure3);
+            this.groupBox3.Controls.Add(this.measure5);
+            this.groupBox3.Controls.Add(this.measure2);
+            this.groupBox3.Controls.Add(this.measure4);
+            this.groupBox3.Controls.Add(this.measure1);
+            this.groupBox3.Controls.Add(this.ingrediant6);
+            this.groupBox3.Controls.Add(this.ingrediant3);
+            this.groupBox3.Controls.Add(this.ingrediant5);
+            this.groupBox3.Controls.Add(this.ingrediant2);
+            this.groupBox3.Controls.Add(this.ingrediant4);
+            this.groupBox3.Controls.Add(this.ingrediant1);
+            this.groupBox3.Controls.Add(this.instructions);
+            this.groupBox3.Controls.Add(this.resultPicture);
+            this.groupBox3.Controls.Add(this.drinkName);
             this.groupBox3.Font = new System.Drawing.Font("KacstOffice", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.groupBox3.ForeColor = System.Drawing.SystemColors.MenuText;
             this.groupBox3.Location = new System.Drawing.Point(307, 228);
@@ -258,152 +259,148 @@
             this.label15.TabIndex = 19;
             this.label15.Text = "Ingredients";
             // 
-            // label9
+            // measure6
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(552, 300);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(91, 29);
-            this.label9.TabIndex = 18;
-            this.label9.Text = "1 1/2 oz";
+            this.measure6.Location = new System.Drawing.Point(552, 300);
+            this.measure6.Name = "measure6";
+            this.measure6.Size = new System.Drawing.Size(214, 29);
+            this.measure6.TabIndex = 18;
+            this.measure6.Text = "1 1/2 oz";
             // 
-            // label8
+            // measure3
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(552, 180);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(91, 29);
-            this.label8.TabIndex = 12;
-            this.label8.Text = "1 1/2 oz";
+            this.measure3.Location = new System.Drawing.Point(552, 180);
+            this.measure3.Name = "measure3";
+            this.measure3.Size = new System.Drawing.Size(214, 29);
+            this.measure3.TabIndex = 12;
+            this.measure3.Text = "1 1/2 oz";
             // 
-            // label10
+            // measure5
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(552, 259);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(111, 29);
-            this.label10.TabIndex = 17;
-            this.label10.Text = "3 Wedges";
+            this.measure5.Location = new System.Drawing.Point(552, 259);
+            this.measure5.Name = "measure5";
+            this.measure5.Size = new System.Drawing.Size(214, 29);
+            this.measure5.TabIndex = 17;
+            this.measure5.Text = "3 Wedges";
             // 
-            // label7
+            // measure2
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(552, 139);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(111, 29);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "3 Wedges";
+            this.measure2.Location = new System.Drawing.Point(552, 139);
+            this.measure2.Name = "measure2";
+            this.measure2.Size = new System.Drawing.Size(214, 29);
+            this.measure2.TabIndex = 11;
+            this.measure2.Text = "3 Wedges";
             // 
-            // label11
+            // measure4
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(552, 221);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(54, 29);
-            this.label11.TabIndex = 16;
-            this.label11.Text = "6 oz";
+            this.measure4.Location = new System.Drawing.Point(552, 221);
+            this.measure4.Name = "measure4";
+            this.measure4.Size = new System.Drawing.Size(214, 29);
+            this.measure4.TabIndex = 16;
+            this.measure4.Text = "6 oz";
             // 
-            // label6
+            // measure1
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(552, 101);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 29);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "6 oz";
+            this.measure1.Location = new System.Drawing.Point(552, 101);
+            this.measure1.Name = "measure1";
+            this.measure1.Size = new System.Drawing.Size(214, 29);
+            this.measure1.TabIndex = 10;
+            this.measure1.Text = "6 oz";
+            this.measure1.Click += new System.EventHandler(this.measurment_Click);
             // 
-            // label12
+            // ingrediant6
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(412, 300);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(84, 29);
-            this.label12.TabIndex = 15;
-            this.label12.Text = "Wiskey";
+            this.ingrediant6.Location = new System.Drawing.Point(334, 300);
+            this.ingrediant6.Name = "ingrediant6";
+            this.ingrediant6.Size = new System.Drawing.Size(162, 29);
+            this.ingrediant6.TabIndex = 15;
+            this.ingrediant6.Text = "Wiskey";
+            this.ingrediant6.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // label5
+            // ingrediant3
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(412, 180);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 29);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Wiskey";
+            this.ingrediant3.Location = new System.Drawing.Point(324, 180);
+            this.ingrediant3.Name = "ingrediant3";
+            this.ingrediant3.Size = new System.Drawing.Size(172, 29);
+            this.ingrediant3.TabIndex = 9;
+            this.ingrediant3.Text = "Wiskey";
+            this.ingrediant3.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // label13
+            // ingrediant5
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(437, 259);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(59, 29);
-            this.label13.TabIndex = 14;
-            this.label13.Text = "Lime";
+            this.ingrediant5.Location = new System.Drawing.Point(329, 259);
+            this.ingrediant5.Name = "ingrediant5";
+            this.ingrediant5.Size = new System.Drawing.Size(167, 29);
+            this.ingrediant5.TabIndex = 14;
+            this.ingrediant5.Text = "Lime";
+            this.ingrediant5.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // label4
+            // ingrediant2
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(437, 139);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 29);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Lime";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.ingrediant2.Location = new System.Drawing.Point(329, 139);
+            this.ingrediant2.Name = "ingrediant2";
+            this.ingrediant2.Size = new System.Drawing.Size(167, 29);
+            this.ingrediant2.TabIndex = 8;
+            this.ingrediant2.Text = "Lime";
+            this.ingrediant2.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.ingrediant2.Click += new System.EventHandler(this.label4_Click);
             // 
-            // label14
+            // ingrediant4
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(368, 221);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(128, 29);
-            this.label14.TabIndex = 13;
-            this.label14.Text = "Ginger Beer";
+            this.ingrediant4.Location = new System.Drawing.Point(319, 221);
+            this.ingrediant4.Name = "ingrediant4";
+            this.ingrediant4.Size = new System.Drawing.Size(177, 29);
+            this.ingrediant4.TabIndex = 13;
+            this.ingrediant4.Text = "Ginger Beer";
+            this.ingrediant4.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // label3
+            // ingrediant1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(368, 101);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(128, 29);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Ginger Beer";
+            this.ingrediant1.Location = new System.Drawing.Point(324, 101);
+            this.ingrediant1.Name = "ingrediant1";
+            this.ingrediant1.Size = new System.Drawing.Size(172, 29);
+            this.ingrediant1.TabIndex = 7;
+            this.ingrediant1.Text = "Ginger Beer";
+            this.ingrediant1.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // label2
+            // instructions
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("KacstOffice", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label2.Location = new System.Drawing.Point(63, 393);
-            this.label2.MaximumSize = new System.Drawing.Size(600, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(600, 75);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Rub rim of cocktail glass with lemon juice and dip rim in salt. Shake schnapps, t" +
+            this.instructions.AutoSize = true;
+            this.instructions.Font = new System.Drawing.Font("KacstOffice", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.instructions.Location = new System.Drawing.Point(63, 393);
+            this.instructions.MaximumSize = new System.Drawing.Size(600, 0);
+            this.instructions.Name = "instructions";
+            this.instructions.Size = new System.Drawing.Size(600, 75);
+            this.instructions.TabIndex = 6;
+            this.instructions.Text = "Rub rim of cocktail glass with lemon juice and dip rim in salt. Shake schnapps, t" +
     "equila, triple sec, lemon juice, and strawberries with ice, strain into the salt" +
     "-rimmed glass, and serve.\r\n";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.instructions.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.instructions.Click += new System.EventHandler(this.label2_Click);
             // 
-            // pictureBox7
+            // resultPicture
             // 
-            this.pictureBox7.Image = global::CocktailSearch.Properties.Resources.strawberr_drink;
-            this.pictureBox7.Location = new System.Drawing.Point(25, 93);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(281, 284);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 5;
-            this.pictureBox7.TabStop = false;
+            this.resultPicture.Image = global::CocktailSearch.Properties.Resources.strawberr_drink;
+            this.resultPicture.Location = new System.Drawing.Point(25, 93);
+            this.resultPicture.Name = "resultPicture";
+            this.resultPicture.Size = new System.Drawing.Size(281, 284);
+            this.resultPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.resultPicture.TabIndex = 5;
+            this.resultPicture.TabStop = false;
+            this.resultPicture.Click += new System.EventHandler(this.resultPicture_Click);
             // 
-            // label1
+            // drinkName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 29);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Margarita";
+            this.drinkName.AutoSize = true;
+            this.drinkName.Location = new System.Drawing.Point(20, 38);
+            this.drinkName.Name = "drinkName";
+            this.drinkName.Size = new System.Drawing.Size(60, 29);
+            this.drinkName.TabIndex = 0;
+            this.drinkName.Text = "Mule";
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.listBox1);
+            this.groupBox4.Controls.Add(this.drinkList);
             this.groupBox4.Font = new System.Drawing.Font("KacstOffice", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.groupBox4.ForeColor = System.Drawing.SystemColors.MenuText;
             this.groupBox4.Location = new System.Drawing.Point(26, 516);
@@ -427,15 +424,15 @@
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popularDrink5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popularDrink4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popularDrink3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popularDrink2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popularDrink1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultPicture)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -444,34 +441,34 @@
         #endregion
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox dropdown_alcohol;
+        private System.Windows.Forms.ComboBox dropdown_ingredients;
+        private System.Windows.Forms.ComboBox dropdown_glass;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.PictureBox popularDrink1;
+        private System.Windows.Forms.PictureBox popularDrink5;
+        private System.Windows.Forms.PictureBox popularDrink4;
+        private System.Windows.Forms.PictureBox popularDrink3;
+        private System.Windows.Forms.PictureBox popularDrink2;
+        private System.Windows.Forms.ListBox drinkList;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label instructions;
+        private System.Windows.Forms.PictureBox resultPicture;
+        private System.Windows.Forms.Label drinkName;
+        private System.Windows.Forms.Label ingrediant3;
+        private System.Windows.Forms.Label ingrediant2;
+        private System.Windows.Forms.Label ingrediant1;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label measure6;
+        private System.Windows.Forms.Label measure3;
+        private System.Windows.Forms.Label measure5;
+        private System.Windows.Forms.Label measure2;
+        private System.Windows.Forms.Label measure4;
+        private System.Windows.Forms.Label measure1;
+        private System.Windows.Forms.Label ingrediant6;
+        private System.Windows.Forms.Label ingrediant5;
+        private System.Windows.Forms.Label ingrediant4;
     }
 }
 
