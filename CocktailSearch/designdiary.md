@@ -20,3 +20,15 @@ of where I should be with progress. At this point in my desing process, I need t
 look programatically. I have the GUI desgined, and I'm feeling much better about my project. I didn't want to loose hope because I was suffering with the creativity piece of this project. Much like writers block, I felt like I had designers block. Now that
 the ball is rolling, and I feel more familiar with Windforms itself. I feel less intimidated about the work ahead of me in the next few days. I plan to do the meat and potatoes of the programming in the next few days, as I learn more about how the intergration
 of the libraries will take place. 
+
+2020/05/06
+
+
+I have made so much progress in my Cocktail Central app, and I'm extremely proud of myself and really excited to see my final product. Today I worked on the true functionality of my code and getting the different parts connected together. 
+Before I started coding, I was thinking of what data structure would be best for what I was trying to accomplish. The goal is to click on a drop down menu, and via an HTTP request, populate the information through a json file from the API. 
+I thought an associative array would be best because I thought 2 D associative array would have been best because I thought it would be good to refer to the drink, and have the output. Dictionaries and associates arrays that I learned in CS 328 
+seemed like a good fit, and given that I'm working on my own web page in Sharon's class, I wanted to see how it would translate in this class. When the 2 D array did not produce the output that I wanted, I tried a one demential array, and I think  
+it will be easier to load from the json files. I learned about $_POST and $_GET in Sharon's class as well as json, so it's awesome that I'm able to put the skills that I have picked up in that class, and apply it to this project. I realized I was too 
+focused on the data structure piece instead of just enjoying myself and having fun. This project, by far, has been the most rewarding experience since I began learning programming. I really suggest using Winforms or atleast introduce it because it really
+helped keep me engaged because I could see the immidiate changes without having to spend tons of hours in Unity trying to figure out how to even load the game. I plan to get help figuring out the json library issue which I need to be able to appropriatley 
+parse my data, and it put it into a readable format. 
