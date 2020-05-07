@@ -23,11 +23,11 @@ namespace CocktailSearch
             InitializeComponent();
             //client = new HttpClient();
 
-        //https://prod.liveshare.vsengsaas.visualstudio.com/join?F5FFF30CDAD5201A93CFAB19BAA1D4354A07
-        //https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin
-        //https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka
+            //https://prod.liveshare.vsengsaas.visualstudio.com/join?F5FFF30CDAD5201A93CFAB19BAA1D4354A07
+            //https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin
+            //https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka
 
-        List<string> alcoholList = getAlcoholList();
+            List<string> alcoholList = getAlcoholList();
             dropdown_alcohol.Items.Clear();
             for (int i = 0; i < alcoholList.Count; i++)
             {
@@ -40,13 +40,14 @@ namespace CocktailSearch
             {
                 dropdown_glass.Items.Add(glassType[i]);
             }
-
+            /*
             List<string> ingrediants = getIngList();
             dropdown_ingredients.Items.Clear();
             for (int i = 0; i < ingrediants.Count; i++)
             {
                 dropdown_ingredients.Items.Add(ingrediants[i]);
             }
+            */
 
             populateFiveFavDrinks();
 
@@ -70,20 +71,52 @@ namespace CocktailSearch
 
         private List<string> getAlcoholList()
         {
-            List<string> returnValue = new List<string>();
-            returnValue.Add("Vodka");
-            returnValue.Add("Scotch");
-            returnValue.Add("Wiskey");
-            return returnValue;
+            //makes HTTP request from web to grab list of ingrediants
+            using (var client = new HttpClient(new HttpClientHandler { }))
+            {
+                HttpResponseMessage response = client.GetAsync("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list").Result;
+                response.EnsureSuccessStatusCode();
+                string result = response.Content.ReadAsStringAsync().Result;
+                status.Text = "Result: " + result;
+                //instructions.Text = result;
+                dynamic stuff = JsonConvert.DeserializeObject(result);
+                
+                dynamic drink = stuff["drinks"];  //pull the first drink from the list of this type of drink
+                List<string> returnValue = new List<string>();
+                foreach(var item in drink)
+                {
+                    string name = item["strIngredient1"];
+                   returnValue.Add(name);
+                    
+                }
+
+                return returnValue;
+            }
+;
+          
         }
 
         private List<string> getGlassList()
         {
-            List<string> returnValue = new List<string>();
-            returnValue.Add("Highball");
-            returnValue.Add("Shot Glass");
-            returnValue.Add("Pint Glass");
-            return returnValue;
+            //makes HTTP request from web to grab list of glasses
+            using (var client = new HttpClient(new HttpClientHandler { }))
+            {
+                HttpResponseMessage response = client.GetAsync("https://www.thecocktaildb.com/api/json/v1/1/list.php?g=list").Result;
+                response.EnsureSuccessStatusCode();
+                string result = response.Content.ReadAsStringAsync().Result;
+                status.Text = "Result: " + result;
+                //instructions.Text = result;
+                dynamic stuff = JsonConvert.DeserializeObject(result);
+
+                dynamic drink = stuff["drinks"];  //pull the first drink from the list of this type of drink
+                List<string> returnValue = new List<string>();
+                foreach (var item in drink)
+                {
+                    string name = item["strGlass"];
+                    returnValue.Add(name);
+                }
+                return returnValue;
+            }
         }
 
         private List<string> getIngList()
@@ -95,18 +128,69 @@ namespace CocktailSearch
             return returnValue;
         }
 
-        private List<string> getDrinks(string alcohol, string glass, string ingrediant)
+        private List<string> getDrinksByIngredient(string ingredient)
         {
-            List<string> returnValue = new List<string>();
-            returnValue.Add("mojito");
-            returnValue.Add("moscow mule");
-            returnValue.Add("tequila sunrise");
-            return returnValue;
+
+            //https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka
+            //makes HTTP request from web to filter drinks by ingredient
+            using (var client = new HttpClient(new HttpClientHandler { }))
+            {
+                HttpResponseMessage response = client.GetAsync("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + ingredient).Result;
+                response.EnsureSuccessStatusCode();
+                string result = response.Content.ReadAsStringAsync().Result;
+                status.Text = "Result: " + result;
+                //instructions.Text = result;
+                dynamic stuff = JsonConvert.DeserializeObject(result);
+                if(stuff == null)
+                {
+                    return null;
+                }
+                dynamic drink = stuff["drinks"];  //pull the first drink from the list of this type of drink
+                List<string> returnValue = new List<string>();
+                foreach (var item in drink)
+                {
+                    string name = item["strDrink"];
+                    returnValue.Add(name);
+                }
+                return returnValue;
+            }
+        }
+        //intersects the two lists (drinksbyIngredient and drinksbyGlass) and produces a list that matches drink name
+        private List<string> getDrinkIntersection(List<string> drinksbyGlass, List<string> drinksbyIngredient)
+        {
+            List<string> returnVal = new List<string>();
+            if(drinksbyIngredient == null && drinksbyGlass != null)
+            {
+                return drinksbyGlass;
+            }
+            else if(drinksbyGlass == null && drinksbyIngredient != null)
+            {
+                return drinksbyIngredient;
+            }
+            else
+            {
+                for(int j = 0; j < drinksbyGlass.Count ; j++)
+                {
+                    for(int k =0; k < drinksbyIngredient.Count; k++)
+                    {
+                        if (drinksbyGlass[j] == drinksbyIngredient[k])
+                        {
+                            returnVal.Add(drinksbyGlass[j]);
+                        }
+                    }
+                }
+            }
+            return returnVal;
         }
 
+
+        //call back function for when the user chooses an ingredient
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<string> drinks = getDrinks(dropdown_alcohol.Text, dropdown_glass.Text, dropdown_ingredients.Text);
+            List<string> drinksbyIngredient = getDrinksByIngredient(dropdown_alcohol.Text);
+            List<string> drinksbyGlass = getDrinksByGlass(dropdown_glass.Text);
+            List<string> drinks = getDrinkIntersection(drinksbyGlass, drinksbyIngredient);
+
             drinkList.Items.Clear();
             for (int i = 0; i < drinks.Count; i++)
             {
@@ -115,16 +199,51 @@ namespace CocktailSearch
 
         }
 
+        private List<string> getDrinksByGlass(string glass)
+        {        
+            //makes HTTP request from web to filter drinks by glass
+            using (var client = new HttpClient(new HttpClientHandler { }))
+            {
+                HttpResponseMessage response = client.GetAsync("https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=" + glass).Result;
+                response.EnsureSuccessStatusCode();
+                string result = response.Content.ReadAsStringAsync().Result;
+                status.Text = "Result: " + result;
+                //instructions.Text = result;
+                dynamic stuff = JsonConvert.DeserializeObject(result);
+                if(stuff == null)
+                {
+                    return null;
+                }
+
+                dynamic drink = stuff["drinks"];  //pull the first drink from the list of this type of drink
+                List<string> returnValue = new List<string>();
+                foreach (var item in drink)
+                {
+                    string name = item["strDrink"];
+                    returnValue.Add(name);
+                }
+                return returnValue;
+            }
+        }
+
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }
 
+        //call back function for when the user chooses a glass
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            List<string> drinksbyIngredient = getDrinksByIngredient(dropdown_alcohol.Text);
+            List<string> drinksbyGlass = getDrinksByGlass(dropdown_glass.Text);
+            List<string> drinks = getDrinkIntersection(drinksbyGlass, drinksbyIngredient);
+            drinkList.Items.Clear();
+            for (int i = 0; i < drinks.Count; i++)
+            {
+                drinkList.Items.Add(drinks[i]);
+            }
         }
-      
+
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -143,17 +262,17 @@ namespace CocktailSearch
 
         private void drinkList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             IDictionary<string, string> drink = getDrink(drinkList.Text);
             populateDrink(drink);
-          
+
         }
 
         private void populateDrink(IDictionary<string, string> drink)
         {
             drinkName.Text = drink["name"];
             resultPicture.Load(drink["photo"]);
-           // instructions.Text = drink["instructions"];
+            instructions.Text = drink["instructions"];
             ingrediant1.Text = drink["ingrediant1"];
             ingrediant2.Text = drink["ingrediant2"];
             ingrediant3.Text = drink["ingrediant3"];
@@ -171,45 +290,40 @@ namespace CocktailSearch
         private IDictionary<string, string> getDrink(string drinkName)
         {
             status.Text = "getDrink";
-           
+
             //makes HTTP request from web to grab information about drink
-             using (var client = new HttpClient(new HttpClientHandler {  }))
-             {
-                 HttpResponseMessage response = client.GetAsync("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita").Result;
-                 response.EnsureSuccessStatusCode();
-                 string result = response.Content.ReadAsStringAsync().Result;
+            using (var client = new HttpClient(new HttpClientHandler { }))
+            {
+                HttpResponseMessage response = client.GetAsync("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drinkName).Result;
+                response.EnsureSuccessStatusCode();
+                string result = response.Content.ReadAsStringAsync().Result;
                 status.Text = "Result: " + result;
-                instructions.Text = result;
+                //instructions.Text = result;
                 dynamic stuff = JsonConvert.DeserializeObject(result);
-                //var ser = new JavaScriptSerializer();
-                //ser.Deserialize<Foo>(json);
+                dynamic drink = stuff["drinks"][0];  //pull the first drink from the list of this type of drink
+                int i = 0;
+
+                //IDictionary<string, IDictionary<string, string>> dictOfDrinks = new Dictionary<string, IDictionary<string, string>>();
+                IDictionary<string, string> drink1 = new Dictionary<string, string>();
+                drink1["name"] = drink["strDrink"];//"Margarita";
+                drink1["ingrediant1"] = drink["strIngredient1"]; //"Tequilla";
+                drink1["ingrediant2"] = drink["strIngredient2"]; //"Triple sec";
+                drink1["ingrediant3"] = drink["strIngredient3"]; //"Lime juice";
+                drink1["ingrediant4"] = drink["strIngredient4"]; //"Salt";
+                drink1["ingrediant5"] = drink["strIngredient5"]; // null;
+                drink1["ingrediant6"] = drink["strIngredient6"]; // null;
+                drink1["measure1"] = drink["strMeasure1"]; //"1 1/2 oz ";
+                drink1["measure2"] = drink["strMeasure2"]; //"1/2 oz ";
+                drink1["measure3"] = drink["strMeasure3"]; //"1 oz ";
+                drink1["measure4"] = drink["strMeasure4"]; //null;
+                drink1["measure5"] = drink["strMeasure5"]; //null;
+                drink1["measure6"] = drink["strMeasure6"]; //null;
+                drink1["photo"] = drink["strDrinkThumb"]; //"https://www.thecocktaildb.com/images/media/drink/wpxpvu1439905379.jpg";
+                drink1["glass"] = drink["strGlass"];//"Cocktail Glass";
+                drink1["instructions"] = drink["strInstructions"];//"Rub the rim of the glass with the lime slice to make the salt stick to it. Take care to moisten only the outer rim and sprinkle the salt on it." +
+                                                                  // " The salt should present to the lips of the imbiber and never mix into the cocktail. Shake the other ingredients with ice, then carefully pour into the glass.";
+                return drink1;
             }
-
-            
-            //IDictionary<string, IDictionary<string, string>> dictOfDrinks = new Dictionary<string, IDictionary<string, string>>();
-            IDictionary<string, string> drink1 = new Dictionary<string, string>();
-            drink1["name"] = "Margarita";
-            drink1["ingrediant1"] = "Tequilla";
-            drink1["ingrediant2"] = "Triple sec";
-            drink1["ingrediant3"] = "Lime juice";
-            drink1["ingrediant4"] = "Salt";
-            drink1["ingrediant5"] = null;
-            drink1["ingrediant6"] = null;
-            drink1["measure1"] = "1 1/2 oz ";
-            drink1["measure2"] = "1/2 oz ";
-            drink1["measure3"] = "1 oz ";
-            drink1["measure4"] = null;
-            drink1["measure5"] = null;
-            drink1["measure6"] = null;
-            drink1["photo"] = "https://www.thecocktaildb.com/images/media/drink/wpxpvu1439905379.jpg";
-            drink1["glass"] = "Cocktail Glass";
-            drink1["instructions"] = "Rub the rim of the glass with the lime slice to make the salt stick to it. Take care to moisten only the outer rim and sprinkle the salt on it." +
-                                     " The salt should present to the lips of the imbiber and never mix into the cocktail. Shake the other ingredients with ice, then carefully pour into the glass.";
-            return drink1;
-
-
-
-
         }
 
         private void measurment_Click(object sender, EventArgs e)
@@ -252,13 +366,13 @@ namespace CocktailSearch
         //Manhatten Drink3 when the popular drink Manhatten is clicked you will see ingrediants
         private void popularDrink3_Click(object sender, EventArgs e)
         {
-            IDictionary<string, string> drink = getDrink("Manhatten");
+            IDictionary<string, string> drink = getDrink("Manhattan");
             populateDrink(drink);
         }
         //Wishkey Sour Drink 4when the popular drink Wiskey Sour is clicked you will see ingrediants
         private void popularDrink4_Click(object sender, EventArgs e)
         {
-            IDictionary<string, string> drink = getDrink("Wiskey Sour");
+            IDictionary<string, string> drink = getDrink("Whiskey Sour");
             populateDrink(drink);
         }
 
@@ -276,6 +390,6 @@ namespace CocktailSearch
     }
 
 
- 
-    
+
+
 }

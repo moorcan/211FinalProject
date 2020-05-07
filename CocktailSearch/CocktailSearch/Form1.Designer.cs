@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dropdown_ingredients = new System.Windows.Forms.ComboBox();
             this.dropdown_glass = new System.Windows.Forms.ComboBox();
             this.dropdown_alcohol = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -77,32 +76,17 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dropdown_ingredients);
             this.groupBox1.Controls.Add(this.dropdown_glass);
             this.groupBox1.Controls.Add(this.dropdown_alcohol);
             this.groupBox1.Font = new System.Drawing.Font("KacstOffice", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.MenuText;
             this.groupBox1.Location = new System.Drawing.Point(26, 253);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(237, 209);
+            this.groupBox1.Size = new System.Drawing.Size(237, 184);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filter by:";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
-            // 
-            // dropdown_ingredients
-            // 
-            this.dropdown_ingredients.FormattingEnabled = true;
-            this.dropdown_ingredients.Items.AddRange(new object[] {
-            "orange juice",
-            "cranberry juice",
-            "pinapple juice",
-            "lime"});
-            this.dropdown_ingredients.Location = new System.Drawing.Point(19, 136);
-            this.dropdown_ingredients.Name = "dropdown_ingredients";
-            this.dropdown_ingredients.Size = new System.Drawing.Size(197, 37);
-            this.dropdown_ingredients.TabIndex = 6;
-            this.dropdown_ingredients.Text = "Ingredients";
             // 
             // dropdown_glass
             // 
@@ -111,7 +95,7 @@
             "Shot glass",
             "Pint glass",
             "martini glass"});
-            this.dropdown_glass.Location = new System.Drawing.Point(19, 93);
+            this.dropdown_glass.Location = new System.Drawing.Point(19, 114);
             this.dropdown_glass.Name = "dropdown_glass";
             this.dropdown_glass.Size = new System.Drawing.Size(197, 37);
             this.dropdown_glass.TabIndex = 5;
@@ -131,7 +115,7 @@
             this.dropdown_alcohol.Name = "dropdown_alcohol";
             this.dropdown_alcohol.Size = new System.Drawing.Size(197, 37);
             this.dropdown_alcohol.TabIndex = 4;
-            this.dropdown_alcohol.Text = "Alcohol";
+            this.dropdown_alcohol.Text = "Ingredients";
             this.dropdown_alcohol.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // groupBox2
@@ -374,10 +358,10 @@
             // 
             this.instructions.AutoSize = true;
             this.instructions.Font = new System.Drawing.Font("KacstOffice", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.instructions.Location = new System.Drawing.Point(63, 393);
-            this.instructions.MaximumSize = new System.Drawing.Size(600, 0);
+            this.instructions.Location = new System.Drawing.Point(20, 398);
+            this.instructions.MaximumSize = new System.Drawing.Size(700, 0);
             this.instructions.Name = "instructions";
-            this.instructions.Size = new System.Drawing.Size(600, 75);
+            this.instructions.Size = new System.Drawing.Size(696, 75);
             this.instructions.TabIndex = 6;
             this.instructions.Text = "Rub rim of cocktail glass with lemon juice and dip rim in salt. Shake schnapps, t" +
     "equila, triple sec, lemon juice, and strawberries with ice, strain into the salt" +
@@ -410,7 +394,7 @@
             this.groupBox4.Controls.Add(this.drinkList);
             this.groupBox4.Font = new System.Drawing.Font("KacstOffice", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.groupBox4.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.groupBox4.Location = new System.Drawing.Point(26, 516);
+            this.groupBox4.Location = new System.Drawing.Point(26, 487);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(237, 230);
             this.groupBox4.TabIndex = 8;
@@ -479,7 +463,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox dropdown_alcohol;
-        private System.Windows.Forms.ComboBox dropdown_ingredients;
         private System.Windows.Forms.ComboBox dropdown_glass;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.PictureBox popularDrink1;
