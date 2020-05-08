@@ -52,6 +52,10 @@ namespace CocktailSearch
             populateFiveFavDrinks();
 
 
+            IDictionary<string, string> drink = getDrink("Moscow Mule");
+            populateDrink(drink);
+
+
 
 
             /*List the categories, glasses, ingredients or alcoholic filters

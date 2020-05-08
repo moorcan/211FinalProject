@@ -203,10 +203,7 @@
             this.drinkList.FormattingEnabled = true;
             this.drinkList.ItemHeight = 29;
             this.drinkList.Items.AddRange(new object[] {
-            "Margarita",
-            "Old Fashion",
-            "Wiskey Mule",
-            "Dirty Martini"});
+            " "});
             this.drinkList.Location = new System.Drawing.Point(19, 36);
             this.drinkList.Name = "drinkList";
             this.drinkList.Size = new System.Drawing.Size(197, 178);
