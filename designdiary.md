@@ -32,3 +32,13 @@ it will be easier to load from the json files. I learned about $_POST and $_GET 
 focused on the data structure piece instead of just enjoying myself and having fun. This project, by far, has been the most rewarding experience since I began learning programming. I really suggest using Winforms or atleast introduce it because it really
 helped keep me engaged because I could see the immidiate changes without having to spend tons of hours in Unity trying to figure out how to even load the game. I plan to get help figuring out the json library issue which I need to be able to appropriatley 
 parse my data, and it put it into a readable format. 
+
+2020/05/07
+
+Today I was able to imlement all of the final touches. At the beginning of the day I had the programmed designed and I had the GUI set-up for the most part, but I had a bunch of stub functions I needed to complete, and HTTP
+requests that I needed to connect to pull my desired json file, and get it parsed. The parsing issue was resolved with a help of a friend, and I' was able use that function outline several times. I built my intersection function
+that took the drop down menu I created with the desired ingrediant type and the desired glass type. I also added a search function, but I wasn't able to get a shadow input box set up for the text. I got my list sorted in 
+alphabetical order in both drop down menus, and I have 5 favorite drink pictures on the top of my application, and when you click on the picture it gathers the information about the drink via the http request. I had to add
+variables for each of the ingrediants, so in therory if there are more than 6 ingrediants, it will only display the first 6. This was mainly for sizing and the real estae avaible on the GUI. I had some failures in getting
+my search bar to correctly filter with the other two drop down features, but functionality wise and the two intersection searches, I feel good about. This was probably the most rewarding programming so far, and I'm really
+glad I was able to get over the 'project idea' hump. I put ALOT of hours into this project, and I'm excited to see how I do. 

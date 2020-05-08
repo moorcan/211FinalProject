@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dropdown_glass = new System.Windows.Forms.ComboBox();
             this.dropdown_alcohol = new System.Windows.Forms.ComboBox();
@@ -60,6 +61,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.status = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip2 = new System.Windows.Forms.StatusStrip();
+            this.searchBar = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.popularDrink5)).BeginInit();
@@ -76,6 +78,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.searchBar);
             this.groupBox1.Controls.Add(this.dropdown_glass);
             this.groupBox1.Controls.Add(this.dropdown_alcohol);
             this.groupBox1.Font = new System.Drawing.Font("KacstOffice", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -95,7 +98,7 @@
             "Shot glass",
             "Pint glass",
             "martini glass"});
-            this.dropdown_glass.Location = new System.Drawing.Point(19, 114);
+            this.dropdown_glass.Location = new System.Drawing.Point(19, 121);
             this.dropdown_glass.Name = "dropdown_glass";
             this.dropdown_glass.Size = new System.Drawing.Size(197, 37);
             this.dropdown_glass.TabIndex = 5;
@@ -111,7 +114,7 @@
             "Rum",
             "Scotch",
             "Gin"});
-            this.dropdown_alcohol.Location = new System.Drawing.Point(19, 50);
+            this.dropdown_alcohol.Location = new System.Drawing.Point(19, 78);
             this.dropdown_alcohol.Name = "dropdown_alcohol";
             this.dropdown_alcohol.Size = new System.Drawing.Size(197, 37);
             this.dropdown_alcohol.TabIndex = 4;
@@ -203,7 +206,7 @@
             this.drinkList.FormattingEnabled = true;
             this.drinkList.ItemHeight = 29;
             this.drinkList.Items.AddRange(new object[] {
-            " "});
+            "Moscow Mule"});
             this.drinkList.Location = new System.Drawing.Point(19, 36);
             this.drinkList.Name = "drinkList";
             this.drinkList.Size = new System.Drawing.Size(197, 178);
@@ -423,6 +426,14 @@
             this.statusStrip2.TabIndex = 10;
             this.statusStrip2.Text = "statusStrip2";
             // 
+            // searchBar
+            // 
+            this.searchBar.Location = new System.Drawing.Point(19, 36);
+            this.searchBar.Name = "searchBar";
+            this.searchBar.Size = new System.Drawing.Size(197, 37);
+            this.searchBar.TabIndex = 6;
+            this.searchBar.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -435,9 +446,11 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.popularDrink5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popularDrink4)).EndInit();
@@ -489,6 +502,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel status;
         private System.Windows.Forms.StatusStrip statusStrip2;
+        private System.Windows.Forms.TextBox searchBar;
     }
 }
 

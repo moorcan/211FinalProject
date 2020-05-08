@@ -17,16 +17,13 @@ namespace CocktailSearch
 {
     public partial class Form1 : Form
     {
+        List<string> searchDrinks;
         private static readonly HttpClient client = new HttpClient();
         public Form1()
         {
             InitializeComponent();
-            //client = new HttpClient();
-
-            //https://prod.liveshare.vsengsaas.visualstudio.com/join?F5FFF30CDAD5201A93CFAB19BAA1D4354A07
-            //https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin
-            //https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka
-
+           
+            //creates a drop down list of glasses
             List<string> alcoholList = getAlcoholList();
             dropdown_alcohol.Items.Clear();
             for (int i = 0; i < alcoholList.Count; i++)
@@ -34,38 +31,23 @@ namespace CocktailSearch
                 dropdown_alcohol.Items.Add(alcoholList[i]);
             }
 
+            //creates a drop down list of glasses
             List<string> glassType = getGlassList();
             dropdown_glass.Items.Clear();
             for (int i = 0; i < glassType.Count; i++)
             {
                 dropdown_glass.Items.Add(glassType[i]);
             }
-            /*
-            List<string> ingrediants = getIngList();
-            dropdown_ingredients.Items.Clear();
-            for (int i = 0; i < ingrediants.Count; i++)
-            {
-                dropdown_ingredients.Items.Add(ingrediants[i]);
-            }
-            */
-
+         
+            //calls function which poopulates the 5 popular drinks on startup 
             populateFiveFavDrinks();
 
-
+            //default drink on start up appears 
             IDictionary<string, string> drink = getDrink("Moscow Mule");
             populateDrink(drink);
 
-
-
-
-            /*List the categories, glasses, ingredients or alcoholic filters
-            https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list
-            https://www.thecocktaildb.com/api/json/v1/1/list.php?g=list
-            https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list
-            https://www.thecocktaildb.com/api/json/v1/1/list.php?a=list
-            */
-            //POPULAR DRINKS
-            //  https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail
+            //search drinks in a function later
+            searchDrinks = new List<string>();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -74,30 +56,31 @@ namespace CocktailSearch
         }
 
         private List<string> getAlcoholList()
-        {
+        {   
+            status.Text = "Retrieving Alcohol List";
+
             //makes HTTP request from web to grab list of ingrediants
             using (var client = new HttpClient(new HttpClientHandler { }))
-            {
+            {   
                 HttpResponseMessage response = client.GetAsync("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list").Result;
                 response.EnsureSuccessStatusCode();
                 string result = response.Content.ReadAsStringAsync().Result;
-                status.Text = "Result: " + result;
+               
                 //instructions.Text = result;
                 dynamic stuff = JsonConvert.DeserializeObject(result);
+
+                //pull the first drink from the list of this type of drink
+                dynamic drink = stuff["drinks"];  
                 
-                dynamic drink = stuff["drinks"];  //pull the first drink from the list of this type of drink
                 List<string> returnValue = new List<string>();
                 foreach(var item in drink)
                 {
                     string name = item["strIngredient1"];
-                   returnValue.Add(name);
-                    
+                   returnValue.Add(name);                  
                 }
-
+                returnValue.Sort();
                 return returnValue;
-            }
-;
-          
+            }        
         }
 
         private List<string> getGlassList()
@@ -133,9 +116,10 @@ namespace CocktailSearch
         }
 
         private List<string> getDrinksByIngredient(string ingredient)
-        {
-
-            //https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka
+        {   
+            //status text at bottom of screen
+            status.Text = "Retrieving by Ingredient";
+           
             //makes HTTP request from web to filter drinks by ingredient
             using (var client = new HttpClient(new HttpClientHandler { }))
             {
@@ -204,14 +188,15 @@ namespace CocktailSearch
         }
 
         private List<string> getDrinksByGlass(string glass)
-        {        
+        {
+            status.Text = "Retrieving by Glass";
             //makes HTTP request from web to filter drinks by glass
             using (var client = new HttpClient(new HttpClientHandler { }))
             {
                 HttpResponseMessage response = client.GetAsync("https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=" + glass).Result;
                 response.EnsureSuccessStatusCode();
                 string result = response.Content.ReadAsStringAsync().Result;
-                status.Text = "Result: " + result;
+               
                 //instructions.Text = result;
                 dynamic stuff = JsonConvert.DeserializeObject(result);
                 if(stuff == null)
@@ -219,7 +204,8 @@ namespace CocktailSearch
                     return null;
                 }
 
-                dynamic drink = stuff["drinks"];  //pull the first drink from the list of this type of drink
+                //unraveling json structure to get to the drink
+                dynamic drink = stuff["drinks"]; //pull the first drink from the list of this type of drink
                 List<string> returnValue = new List<string>();
                 foreach (var item in drink)
                 {
@@ -293,7 +279,7 @@ namespace CocktailSearch
 
         private IDictionary<string, string> getDrink(string drinkName)
         {
-            status.Text = "getDrink";
+            status.Text = "Getting Drink: " + drinkName;
 
             //makes HTTP request from web to grab information about drink
             using (var client = new HttpClient(new HttpClientHandler { }))
@@ -301,7 +287,7 @@ namespace CocktailSearch
                 HttpResponseMessage response = client.GetAsync("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drinkName).Result;
                 response.EnsureSuccessStatusCode();
                 string result = response.Content.ReadAsStringAsync().Result;
-                status.Text = "Result: " + result;
+          
                 //instructions.Text = result;
                 dynamic stuff = JsonConvert.DeserializeObject(result);
                 dynamic drink = stuff["drinks"][0];  //pull the first drink from the list of this type of drink
@@ -390,6 +376,75 @@ namespace CocktailSearch
         private void toolStripStatusLabel1_Click(object sender, EventArgs e)
         {
 
+        }
+        //search bar function 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+         
+         //
+            if(searchBar.Text.Length == 1)
+            {
+                drinkList.Items.Clear();
+                string character = searchBar.Text;
+
+                //status text at bottom of screen
+                status.Text = "Searching By First Letter";
+
+                //makes HTTP request from web to filter drinks by first letter
+                using (var client = new HttpClient(new HttpClientHandler { }))
+                {
+                    HttpResponseMessage response = client.GetAsync("https://www.thecocktaildb.com/api/json/v1/1/search.php?f=" + character).Result;
+                    response.EnsureSuccessStatusCode();
+                    string result = response.Content.ReadAsStringAsync().Result;
+                 
+                    //parse json data
+                    dynamic stuff = JsonConvert.DeserializeObject(result);
+                    /*                  
+                    if (stuff == null)
+                    {
+                        return null;
+                    }
+                    */
+
+                    //pull the first drink from the list of this type of drink
+                    dynamic drink = stuff["drinks"]; 
+                   
+                   
+                    foreach (var item in drink)
+                    {
+                        string name = item["strDrink"];
+                        searchDrinks.Add(name);
+                    }
+                    drinkList.Items.Clear();
+                    for (int i = 0; i < searchDrinks.Count; i++)
+                    {
+                        drinkList.Items.Add(searchDrinks[i]);
+                        searchDrinks.Sort();
+                    }
+
+                }
+            }
+            else if(searchBar.Text.Length > 1)
+            {
+                for(int i = 0; i < searchDrinks.Count; i++)
+                {                   
+                    string character = searchBar.Text.Substring(searchBar.Text.Length - 1 , 1);
+                    string drinkName = searchDrinks[i];
+                    string character2 = drinkName.Substring(searchBar.Text.Length - 1, 1);
+                    if(! character.Equals(character2))
+                    {
+                        searchDrinks.RemoveAt(i);
+                    }
+                }
+                drinkList.Items.Clear();
+                for (int i = searchDrinks.Count -1; i >= 0; i--)
+                {
+                    
+                    drinkList.Items.Add(searchDrinks[i]);
+                }
+            }
+
+      
         }
     }
 
